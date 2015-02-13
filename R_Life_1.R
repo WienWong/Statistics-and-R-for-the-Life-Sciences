@@ -1,3 +1,6 @@
+getwd()
+
+setwd("C:/Users/Weihua/Documents/HarvardX_R_Life_1/")
 
 tab = read.csv("msleep_ggplot2.csv")
 
@@ -28,10 +31,12 @@ tab[ c(1,2), ]
 # The rows where the total sleep is greater than 18 hours:
 tab[ tab$sleep_total > 18, ]
 
-# Subsetting a vector looks very similar, but we just remove the comma (because there are no columns now). The first two elements can be subset like so:
+# Subsetting a vector looks very similar, but we just remove the comma (because there are no columns now). The first two 
+# elements can be subset like so:
 tab$sleep_total[ c(1,2) ]
 
-# What is the average total sleep, using the function mean() and vector subsetting, for the animals with total sleep greater than 18 hours?
+# What is the average total sleep, using the function mean() and vector subsetting, for the animals with total sleep greater 
+# than 18 hours?
 tab$sleep_total[ tab$sleep_total > 18 ]
 
 mean( tab$sleep_total[ tab$sleep_total > 18 ] )
@@ -107,7 +112,8 @@ table(tab$order)
 s = split(tab$sleep_total, tab$order)
 s
 
-# We can pull out a single vector from the list using the name of the Order or the number that it occurs in the list (note: this is where the level occurs in the levels of the factor).
+# We can pull out a single vector from the list using the name of the Order or the number that it occurs in the list (note: 
+# this is where the level occurs in the levels of the factor).
 # 
 # Lists are indexed with double square brackets [[]], instead of a single square bracket []:
 s[[17]]
@@ -131,7 +137,7 @@ sapply(s, mean)
 tapply(tab$sleep_total, tab$order, mean)
 
 # Use any one of lapply(), sapply(), or tapply() to answer the following question:
-# What is the standard deviation of total hours of sleep for the Primates Order? (The standard deviation function is sd() in R.)
+# What's the standard deviation of total hours of sleep for the Primates Order? 
 tapply(tab$sleep_total, tab$order, sd)
 
 lapply(s, sd)
